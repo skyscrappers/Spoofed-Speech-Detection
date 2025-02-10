@@ -1,0 +1,7 @@
+Generative speech technologies, such as text-to-speech (TTS) and voice conversion, have significantly increased the risk of spoofing attacks on Automatic Speaker Verification (ASV) systems. While traditional audio-based methods are effective at detecting known attacks, they often struggle with new, sophisticated spoofing techniques encountered in real-world scenarios.
+
+To address this challenge, we present an approach that builds on standard audio-based models by incorporating guidance from Large Language Models (LLMs), like GPT-4, only during the testing phase. Unlike multi-modal methods that rely on both text and audio data during training, our approach keeps the training process purely audio-focused. We introduce a technique called label impurity, where a small portion of training labels are intentionally marked as “Don’t Know.” This allows the model to reserve some capacity to process external information at the time of inference.
+
+During testing, if an LLM can confidently verify or dispute a transcribed spoken sentence based on the speaker’s online presence, this semantic feedback is combined with the audio model’s output using a tunable weight. If the LLM is unsure, the system relies solely on the audio-based model, ensuring consistent performance even for speakers with limited online data.
+
+This method is adaptable and future-proof, designed to improve as language models evolve while maintaining compatibility with existing anti-spoofing systems.
